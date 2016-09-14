@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1= title
+    form#formDelBook(name="delbook", method="delete", action="/delbook")
+    input#inputTitle(type="text",placeholder="Title",name="title")
+    button#btnSubmit(type="submit") submit

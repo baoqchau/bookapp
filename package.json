@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "./node_modules/.bin/mocha"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -12,6 +13,14 @@
     "express": "~4.13.4",
     "pug": "~2.0.0-alpha6",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "knex": "0.11",
+    "mysql": "*",
+    "bookshelf": "*",
+    "bluebird": "*"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
   }
 }
