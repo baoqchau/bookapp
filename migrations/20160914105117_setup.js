@@ -4,6 +4,7 @@ exports.up = function(knex, Promise) {
           knex.schema.createTable('books', function(table){
               table.string('title');
               table.string('author');
+              table.increments('id');
               table.timestamps();
           })
         ]);

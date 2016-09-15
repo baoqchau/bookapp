@@ -30,15 +30,12 @@ router.post('/addbook', function(req, res){
 }); 
 
 router.get('/books', function(req, res, next){
-    Book.fetchAll().then(function(books){
-        res.json({books});
-    });
+    res.render('books',  {title: 'List of all books', books: Book});
  });
 
-router.delete('/delbook', function(req, res, next){
-    var title = req.body.title;
+router.post('/delbook', function(req, res, next){
     Book
-        .where('title', title)
+        .where('title', req.body.title)
         .destroy()
         .then(function(destroyed){
             res.json({destroyed});
