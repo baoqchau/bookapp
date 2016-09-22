@@ -24,14 +24,18 @@ router.post('/addbook', function(req, res){
         author: author
     })
         .save()
-        .then(function(saved){
-            res.json({saved});
+        .then(function(){
+            res.redirect('/books');
         });
 }); 
 
 router.get('/books', function(req, res, next){
-    res.render('books',  {title: 'List of all books', books: Book});
- });
+    Book
+        .fetchAll()
+        .then(function(result){
+            res.render('books', {title: 'List of all books', books: result.toJSON()});
+        });
+});
 
 router.post('/delbook', function(req, res, next){
     Book
