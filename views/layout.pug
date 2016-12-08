@@ -4,4 +4,9 @@ html
     title= title
     link(rel='stylesheet', href='stylesheets/style.css')
   body
-    block content   
+      ul   
+        li(class="top-menu"): a(href="/addbook") Add new book
+        li(class="top-menu"): a(href="/delbook") Delete book
+        li(class="top-menu"): a(href="/books") All books
+        li(class="top-menu"): a(href="/") Home
+      block content 

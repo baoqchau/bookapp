@@ -1,12 +1,37 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #bec0d3; 
 }
 
 a {
   color: #00B7FF;
 }
 
+a:link {
+	text-decoration: none;
+}
+
 table, th, td {
     border: 1px solid black;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+.top-menu {
+	display: block;
+	float: right;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.top-menu:hover {
+	background-color: #111;
 }

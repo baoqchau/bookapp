@@ -19,9 +19,11 @@ router.get('/delbook', function(req, res){
 router.post('/addbook', function(req, res){
     var title = req.body.title;
     var author = req.body.author;
+	var image = req.body.image;
     new Book({
         title: title,
-        author: author
+        author: author,
+		image: image
     })
         .save()
         .then(function(){

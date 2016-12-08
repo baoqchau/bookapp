@@ -7,8 +7,10 @@ block content
             th= 'ID'
             th= 'Title'
             th= 'Author'
+            th= 'Book Covers'
         each book in books 
             tr
             th= book.id
             th= book.title
             th= book.author
+            th: img(src= book.image width="100" height="100")
