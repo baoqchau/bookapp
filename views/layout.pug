@@ -2,11 +2,26 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='stylesheets/style.css')
+    link(rel="stylesheet", href="stylesheets/style.css")
+    link(rel="stylesheet", href="css/bootstrap.min.css")
+    link(rel="stylesheet", href="css/3-col-portfolio.css")
   body
-      ul   
-        li(class="top-menu"): a(href="/addbook") Add new book
-        li(class="top-menu"): a(href="/delbook") Delete book
-        li(class="top-menu"): a(href="/books") All books
-        li(class="top-menu"): a(href="/") Home
+    script(src="js/jquery.js")
+    script(src="js/bootstrap.min.js")
+    nav(class="navbar navbar-inverse navbar-fixed-top" role="navigation")
+      div(class="container")
+        div(class="navbar-header")
+          button(type="button" class="navbar-toggle" data-toggle="collapse")
+                  span(class="sr-only") Toggle navigation
+                  span(class="icon-bar")
+                  span(class="icon-bar")
+                  span(class="icon-bar")
+          a(class="navbar-brand" href="/") Home
+        div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
+          ul(class="nav navbar-nav")   
+            li: a(href="/addbook") Add new book
+            li: a(href="/delbook") Delete book
+            li: a(href="/books") All books
+            li: a(href="/search") Search
+            li: a(href="/browse") Browse
       block content 
