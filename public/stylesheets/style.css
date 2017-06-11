@@ -35,3 +35,8 @@ ul {
 .top-menu:hover {
 	background-color: #111;
 }
+
+.author {
+	font-size: 20px;
+	color: red;
+}

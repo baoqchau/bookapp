@@ -1,17 +1,10 @@
 extends layout
 
 block content
-    h1= title
-    table
-        tr
-            th= 'ID'
-            th= 'Title'
-            th= 'Author'
-            th= 'Book Covers'
-            th= 'Genre'
-        tr
-            th= book.id
-            th= book.title
-            th= book.author
-            th: img(src= book.image width="100" height="125")
-            th= book.genres
+  div(class="row")
+    div(class="col-md-2")
+      img(src= book.image width="200" height="300")
+    div(class="col-md-10")
+      h1= title
+      p(class="author")= "Written by " + book.author
+

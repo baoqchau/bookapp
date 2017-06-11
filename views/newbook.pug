@@ -27,6 +27,28 @@ block content
         label
           input(type="radio",name="optionsRadios",value="acceptable")
           | Acceptable 
+      div(class="checkbox")
+        label
+          input(type="checkbox")
+          | Ebook
+      div(class="checkbox")
+        label
+          input(type="checkbox")
+          | Paperback 
+      div(class="checkbox")
+        label
+          input(type="checkbox")
+          | Hardcover 
+      label(class="col-sm-2 control-label") Language 
+      select
+        option(value="English")
+          | English
+        option(value="Spanish")
+          | Spanish
+        option(value="Vietnamese")
+          | Vietnamese
+        option(value="French")
+          | French
       div(class="form-group")
         div(class="col-sm-offset-2 col-sm-10")
           button(type="submit",class="btn btn-default") Submit
