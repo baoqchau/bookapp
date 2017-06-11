@@ -22,7 +22,6 @@ router.get('/book/:id', function(req, res, next){
 		.where({id: req.params.id})
 		.fetch()
 		.then(function(result){
-			console.log(result.toJSON());
 			res.render('bookSpec', {title: result.toJSON().title, book: result.toJSON()});
 		});
 });
@@ -30,11 +29,26 @@ router.get('/book/:id', function(req, res, next){
 router.post('/addbook', function(req, res){
     var title = req.body.title;
     var author = req.body.author;
-	var image = req.body.image;
+	  var image = req.body.image;
+    var bookStatus = req.body.optionsRadios;
+    var bookTypes;
+    if (req.body.ebook === 'on'){
+      bookTypes = 'ebook'; 
+    }
+    else if (req.body.paperback === 'on'){
+      bookTypes = 'paperback';
+    }
+    else if (req.body.hardcover === 'on'){
+      bookTypes = 'hardcover';
+    }
+    var language = req.body.language;
     new Book({
         title: title,
         author: author,
-		image: image
+		    image: image,
+        status: bookStatus,
+        bookTypes: bookTypes,
+        language: language
     })
         .save()
         .then(function(){
@@ -45,8 +59,6 @@ router.post('/addbook', function(req, res){
 function serialize_book(book){
 	var book_alone = book.toJSON();
 	book_alone.genres = _.map(book.related('genres').toJSON(), 'name').join(',');
-	console.log(book.related('genres').toJSON());
-	console.log(book_alone);
 	return book_alone;
 }
 
@@ -65,7 +77,6 @@ router.get('/bookbyrowling', function(req, res, next){
 		.where({author: 'JK Rowling'})
 		.fetchAll()
 		.then(function(result){
-			console.log(result.toJSON());
 			res.render('books', {title: 'Books by JK Rowling', books: result.toJSON()});
 		});
 });
@@ -74,7 +85,7 @@ router.post('/delbook', function(req, res, next){
         .where('title', req.body.title)
         .destroy()
         .then(function(destroyed){
-            res.json({destroyed});
+            res.redirect('/books');
         });
 });
 
